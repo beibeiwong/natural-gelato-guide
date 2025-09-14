@@ -77,39 +77,248 @@ body {
     color: var(--text-color);
 }
 
-.feature-grid {
+.welcome-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+/* Flavor Selection Styles */
+.flavor-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.feature-card {
+.flavor-button {
     background: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-family: inherit;
+}
+
+.flavor-button:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flavor-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.flavor-description {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.flavor-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.difficulty {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.difficulty.beginner {
+    background-color: #4CAF50;
+}
+
+.difficulty.intermediate {
+    background-color: #FF9800;
+}
+
+.difficulty.advanced {
+    background-color: #F44336;
+}
+
+.time {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--card-background);
+    border-radius: 12px;
+    max-width: 800px;
+    max-height: 90vh;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: var(--border-color);
+}
+
+/* Recipe Content Styles */
+.recipe-header {
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recipe-header h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.recipe-description {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.recipe-body {
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.ingredients-section,
+.instructions-section {
+    margin-bottom: 2rem;
 }
 
-.feature-card h3 {
+.ingredients-section h3,
+.instructions-section h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
 }
 
-.feature-card p {
+.ingredients-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.ingredients-list li:last-child {
+    border-bottom: none;
+}
+
+.ingredients-list strong {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    min-width: 100px;
+}
+
+.instruction-step {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.step-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.step-duration {
+    background: var(--accent-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.step-description {
     color: var(--text-color);
     line-height: 1.6;
+    margin: 0;
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .header {
         padding: 1rem;
@@ -129,12 +338,643 @@ body {
         font-size: 1.5rem;
     }
     
-    .feature-grid {
+    .flavor-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
     
-    .feature-card {
+    .flavor-button {
+        padding: 1rem;
+    }
+    
+    .flavor-name {
+        font-size: 1.1rem;
+    }
+    
+    .modal {
+        padding: 0.5rem;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+    }
+    
+    .recipe-header {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .recipe-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .recipe-body {
+        padding: 1rem;
+    }
+    
+    .recipe-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .ingredients-list strong {
+        min-width: auto;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+}/* Ic
+e Cream Mockup Images */
+.flavor-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.flavor-button::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f8f8f8, #e0e0e0);
+    box-shadow: 
+        inset -5px -5px 10px rgba(0,0,0,0.1),
+        inset 5px 5px 10px rgba(255,255,255,0.8),
+        0 2px 8px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+/* Flavor-specific ice cream colors */
+.flavor-button[data-flavor="honey-lavender"]::before {
+    background: linear-gradient(45deg, #E6E6FA, #DDA0DD);
+}
+
+.flavor-button[data-flavor="matcha"]::before {
+    background: linear-gradient(45deg, #90EE90, #228B22);
+}
+
+.flavor-button[data-flavor="chocolate-chili"]::before {
+    background: linear-gradient(45deg, #8B4513, #D2691E);
+}
+
+.flavor-button[data-flavor="coconut-lime"]::before {
+    background: linear-gradient(45deg, #F0FFF0, #32CD32);
+}
+
+.flavor-button[data-flavor="rose-cardamom"]::before {
+    background: linear-gradient(45deg, #FFB6C1, #FF69B4);
+}
+
+.flavor-button[data-flavor="salted-caramel"]::before {
+    background: linear-gradient(45deg, #DEB887, #CD853F);
+}
+
+.flavor-button[data-flavor="pineapple-basil"]::before {
+    background: linear-gradient(45deg, #FFD700, #9ACD32);
+}
+
+.flavor-button[data-flavor="espresso"]::before {
+    background: linear-gradient(45deg, #8B4513, #A0522D);
+}
+
+.flavor-button[data-flavor="sea-salt-blue-milk"]::before {
+    background: linear-gradient(45deg, #87CEEB, #4169E1);
+}
+
+.flavor-button[data-flavor="raspberry"]::before {
+    background: linear-gradient(45deg, #FF69B4, #DC143C);
+}
+
+.flavor-button[data-flavor="rainbow"]::before {
+    background: linear-gradient(45deg, 
+        #FF0000 0%, 
+        #FF7F00 16.66%, 
+        #FFFF00 33.33%, 
+        #00FF00 50%, 
+        #0000FF 66.66%, 
+        #4B0082 83.33%, 
+        #9400D3 100%);
+}
+
+.flavor-button[data-flavor="pistachio"]::before {
+    background: linear-gradient(45deg, #90EE90, #6B8E23);
+}
+
+.flavor-button[data-flavor="mango"]::before {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+}
+
+.flavor-button[data-flavor="tofu-vegan"]::before {
+    background: linear-gradient(45deg, #F5F5DC, #DEB887);
+}
+
+.flavor-button[data-flavor="vanilla-bean"]::before {
+    background: linear-gradient(45deg, #FFFACD, #F5DEB3);
+    position: relative;
+}
+
+.flavor-button[data-flavor="vanilla-bean"]::after {
+    content: '';
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 36px;
+    height: 36px;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        #8B4513 2px,
+        #8B4513 3px
+    );
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Ice cream scoop shadow effect */
+.flavor-button::after {
+    content: '';
+    position: absolute;
+    top: 4.5rem;
+    right: 1.5rem;
+    width: 30px;
+    height: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Adjust text positioning to accommodate ice cream image */
+.flavor-button .flavor-name,
+.flavor-button .flavor-description,
+.flavor-button .flavor-meta {
+    position: relative;
+    z-index: 2;
+    margin-right: 80px;
+}
+
+/* Mobile adjustments for ice cream images */
+@media (max-width: 768px) {
+    .flavor-button::before {
+        width: 50px;
+        height: 50px;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .flavor-button::after {
+        top: 3.5rem;
+        right: 1rem;
+        width: 25px;
+        height: 6px;
+    }
+    
+    .flavor-button[data-flavor="vanilla-bean"]::after {
+        top: 0.7rem;
+        right: 0.7rem;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .flavor-button .flavor-name,
+    .flavor-button .flavor-description,
+    .flavor-button .flavor-meta {
+        margin-right: 60px;
+    }
+}/
+* Recipe Categories */
+.recipe-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    background: var(--card-background);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.category-btn:hover {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    color: white;
+}
+
+.category-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Techniques Section */
+.techniques-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.techniques-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.techniques-btn {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.techniques-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Techniques Modal Content */
+.techniques-content {
+    padding: 0;
+}
+
+.technique-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--background-color);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.technique-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.technique-section p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.safety-tips {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.safety-tips h3 {
+    color: #856404;
+    margin-bottom: 1rem;
+}
+
+.safety-tips ul {
+    color: #856404;
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.safety-tips li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Advanced recipe indicators */
+.flavor-button[data-flavor*="custard"] .difficulty.advanced::after {
+    content: " 🥚";
+    font-size: 0.8em;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .recipe-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .techniques-section {
+        margin: 2rem 0;
         padding: 1.5rem;
     }
+    
+    .techniques-btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .technique-section {
+        padding: 1rem;
+    }
+}/
+* Enhanced Techniques Modal Styling */
+.techniques-content {
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.techniques-content h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 1rem;
+}
+
+.techniques-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.technique-section {
+    background: var(--background-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.technique-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.technique-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.technique-section p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.technique-tips {
+    background: rgba(244, 164, 96, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.technique-tips h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.technique-tips ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.technique-tips li {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Storage Section */
+.storage-section {
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.storage-section h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.storage-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.storage-method {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid var(--accent-color);
+}
+
+.storage-method h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.storage-method p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Troubleshooting Section */
+.troubleshooting-section {
+    background: #fff8e1;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 2px solid #ffcc02;
+}
+
+.troubleshooting-section h2 {
+    color: #f57f17;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.troubleshooting-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.troubleshooting-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.troubleshooting-item h4 {
+    color: #e65100;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.troubleshooting-item p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Enhanced Safety Tips */
+.safety-tips {
+    background: linear-gradient(135deg, #ffebee, #fce4ec);
+    border: 2px solid #f48fb1;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.safety-tips h3 {
+    color: #c2185b;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.safety-tips ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.safety-tips li {
+    color: #880e4f;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Equipment Guide */
+.equipment-guide {
+    background: linear-gradient(135deg, #f1f8e9, #e8f5e8);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 2px solid var(--secondary-color);
+}
+
+.equipment-guide h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.equipment-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #4caf50;
+}
+
+.equipment-item strong {
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.equipment-item p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design for Techniques */
+@media (max-width: 768px) {
+    .techniques-content {
+        max-height: 85vh;
+    }
+    
+    .techniques-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .technique-section {
+        padding: 1rem;
+    }
+    
+    .technique-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .storage-methods,
+    .equipment-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .storage-section,
+    .troubleshooting-section,
+    .safety-tips,
+    .equipment-guide {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .technique-tips {
+        padding: 0.75rem;
+    }
+}
+
+/* Scrollbar Styling for Techniques Modal */
+.techniques-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.techniques-content::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 4px;
+}
+
+.techniques-content::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.techniques-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }
